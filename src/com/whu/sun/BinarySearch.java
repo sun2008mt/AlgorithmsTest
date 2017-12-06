@@ -41,7 +41,7 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        System.out.println("测试...");
+
         BinarySearch binarySearch = new BinarySearch();
 
         int result = binarySearch.binarySearch(3, new int[] {1,6,9,4,5,2,7,0});
@@ -52,5 +52,7 @@ public class BinarySearch {
 
         result = binarySearch.binarySearch(3, new int[]{});
         assert result == -1;
+
+        System.out.println("测试通过...");
     }
 }

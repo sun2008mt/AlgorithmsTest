@@ -18,7 +18,6 @@ public class Oujilide {
     }
 
     public static void main(String[] args) {
-        System.out.println("测试...");
 
         Oujilide oujilide = new Oujilide();
 
@@ -39,5 +38,7 @@ public class Oujilide {
 
         result = oujilide.oujilideAlgorithm(-4, -6);
         assert result == -1;
+
+        System.out.println("测试通过...");
     }
 }
