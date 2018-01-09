@@ -28,7 +28,22 @@ public class Operator {
         return a + b;
     }
 
+    /*
+    * 给出两个整数a和b, 求他们的和, 但不能使用 + 等数学运算符
+    *
+    * */
+
     public int aplusb_2(int a, int b) {
+        // 主要利用异或运算来完成
+        // 异或运算有一个别名叫做：不进位加法
+        // 那么a ^ b就是a和b相加之后，该进位的地方不进位的结果
+        // 然后下面考虑哪些地方要进位，自然是a和b里都是1的地方
+        // a & b就是a和b里都是1的那些位置，a & b << 1 就是进位
+        // 之后的结果。所以：a + b = (a ^ b) + (a & b << 1)
+        // 令a' = a ^ b, b' = (a & b) << 1
+        // 可以知道，这个过程是在模拟加法的运算过程，进位不可能
+        // 一直持续，所以b最终会变为0。因此重复做上述操作就可以
+        // 求得a + b的值。
 
         int carry = -1;           //进位
         while (carry != 0) {
@@ -65,10 +80,13 @@ public class Operator {
     }
 
     /*
-     * 找出n的阶乘的结果尾部0的个数
+     * 计算出n阶乘中尾部零的个数
+     * 11! = 39916800，因此应该返回 2
+     *
      * @param n: An integer
      * @return: An integer, denote the number of trailing zeros in n!
      */
+
     public long trailingZeros(long n) {
         // write your code here, try to do it without arithmetic operators.
 
@@ -83,10 +101,10 @@ public class Operator {
 //        return count;
 
         long count = 0;
-        long temp = n / 5;
-        while (temp != 0) {
-            count += temp;
-            temp /= 5;
+
+        while (n != 0) {
+            count += n / 5;
+            n /= 5;
         }
 
         return count;
