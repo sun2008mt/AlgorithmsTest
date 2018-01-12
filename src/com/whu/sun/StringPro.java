@@ -13,6 +13,8 @@ public class StringPro {
         StringPro sp = new StringPro();
         int res = sp.strStr("abfadfefasdf", "fa");
         System.out.println(res == 2);
+
+        System.out.println(sp.reverseStr("abcedfg"));
     }
 
     /*
@@ -48,5 +50,24 @@ public class StringPro {
     public int strStrKMP(String source, String target) {
 
         return  -1;
+    }
+
+    /*
+     * 反转字符串
+     * @param s: A string
+     * @return: A string
+     */
+    public String reverseStr(String s) {
+        if (s == null || s.length() <= 1) return s;
+
+        char[] chars = s.toCharArray();
+        char temp;
+        for (int i = 0; i < chars.length >> 1; i++) {
+            temp = chars[i];
+            chars[i] = chars[chars.length - i - 1];
+            chars[chars.length - i - 1] = temp;
+        }
+
+        return String.valueOf(chars);
     }
 }
