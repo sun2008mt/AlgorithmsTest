@@ -211,6 +211,58 @@ public class BinaryTree {
         return Math.max(left, right) + 1;
     }
 
+    //获取最小深度
+    public int getMinDepth(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        if (node.leftChild == null && node.rightChild == null) {
+            return 1;
+        }
+
+        return Math.min(getMinDepth(node.leftChild), getMinDepth(node.rightChild)) + 1;
+    }
+
+    //获取节点个数
+    public int getNumOfNode(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int left = getNumOfNode(node.leftChild);
+        int right = getNumOfNode(node.rightChild);
+        return left + right + 1;
+    }
+
+    //获取叶子节点个数
+    public int getNumOfNoChildNode(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        if (node.leftChild == null && node.rightChild == null) {
+            return 1;
+        }
+
+        return getNumOfNoChildNode(node.leftChild) + getNumOfNoChildNode(node.rightChild);
+    }
+
+    //第k层节点个数
+    public int getNumOfkLevelNode(Node node, int k) {
+        if (node == null || k < 1) {
+            return 0;
+        }
+
+        if (k == 1) {
+            return 1;
+        }
+
+        int numLeft = getNumOfkLevelNode(node.leftChild, k - 1);
+        int numRight = getNumOfkLevelNode(node.rightChild, k - 1);
+        return numLeft + numRight;
+    }
+
     //删除
     public boolean delete(int value) {
         return false;

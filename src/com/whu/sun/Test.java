@@ -40,7 +40,21 @@ public class Test {
         BinaryTree.Node node = bt.findKey(777);
         node.display();
 
-        int maxDeath = bt.getMaxDeath(bt.findKey(52));
+        BinaryTree.Node root = bt.findKey(52);
+
+        int maxDeath = bt.getMaxDeath(root);
         System.out.println(maxDeath);
+
+        int minDepth = bt.getMinDepth(root);
+        System.out.println(minDepth);
+
+        int numOfNode = bt.getNumOfNode(root);
+        System.out.println(numOfNode);
+
+        int numOfNoChildNode = bt.getNumOfNoChildNode(root);
+        System.out.println(numOfNoChildNode);
+
+        int numOfkLevelNode = bt.getNumOfkLevelNode(root, 4);
+        System.out.println(numOfkLevelNode);
     }
 }
