@@ -32,6 +32,15 @@ public class Test {
 
         bt.inOrderTraverse();
         System.out.println("==================================================================================");
+
         bt.inOrderByStack();
+
+        System.out.println("==================================================================================");
+
+        BinaryTree.Node node = bt.findKey(777);
+        node.display();
+
+        int maxDeath = bt.getMaxDeath(bt.findKey(52));
+        System.out.println(maxDeath);
     }
 }

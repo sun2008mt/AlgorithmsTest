@@ -200,6 +200,17 @@ public class BinaryTree {
         }
     }
 
+    //获取最大深度
+    public int getMaxDeath(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int left = getMaxDeath(node.leftChild);
+        int right = getMaxDeath(node.rightChild);
+        return Math.max(left, right) + 1;
+    }
+
     //删除
     public boolean delete(int value) {
         return false;
@@ -208,7 +219,7 @@ public class BinaryTree {
     /*
     * 节点类
     * */
-    private class Node {
+    public class Node {
         int value;
         Node leftChild;
         Node rightChild;
